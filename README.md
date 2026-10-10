@@ -24,5 +24,5 @@ No downloads, no installs — just open the HTML file and play.
 ## Credits
 Built with vanilla HTML, CSS and JavaScript.
 Inspired by the Pokémon franchise by Nintendo / Game Freak.
-##Version 1.5
+## Version 1.5
 -New romblomons
