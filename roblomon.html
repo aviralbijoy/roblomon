@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Roblomon</title>
+<title>Roblomon v1.5</title>
 <style>
   * { box-sizing: border-box; }
   body::-webkit-scrollbar { display: none; }
@@ -125,7 +125,7 @@
 </head>
 <body>
 <div id="app">
-  <h1> Roblomon </h1>
+
 
   <div class="screen active" id="screen-login">
     <div class="panel">
@@ -262,6 +262,17 @@ const SPECIES=[
   {id:18,name:'Glacikit', type:['Ice','Normal'],    file:'glacikit.png',  base:{hp:35,atk:12}},
   {id:19,name:'Magmatoise',type:['Fire','Rock'],    file:'magmatoise.png',base:{hp:50,atk:12}},
   {id:20,name:'Aerofin',  type:['Water','Flying'],  file:'aerofin.png',   base:{hp:34,atk:13}},
+  // ── v1.5 NEW ROBLOMON ──
+  {id:21,name:'Pyrocub',   type:['Fire'],            file:'pyrocub.png',   base:{hp:36,atk:13}},
+  {id:22,name:'Coraline',  type:['Water','Poison'],  file:'coraline.png',  base:{hp:40,atk:11}},
+  {id:23,name:'Mosscrawl', type:['Grass','Bug'],     file:'mosscrawl.png', base:{hp:38,atk:11}},
+  {id:24,name:'Thunderox', type:['Electric','Ground'],file:'thunderox.png',base:{hp:37,atk:14}},
+  {id:25,name:'Shadowpaw', type:['Dark','Ghost'],    file:'shadowpaw.png', base:{hp:32,atk:15}},
+  {id:26,name:'Crystalon', type:['Ice','Steel'],     file:'crystalon.png', base:{hp:44,atk:11}},
+  {id:27,name:'Embertail', type:['Fire','Flying'],   file:'embertail.png', base:{hp:35,atk:14}},
+  {id:28,name:'Mudstomp',  type:['Ground','Water'],  file:'mudstomp.png',  base:{hp:46,atk:10}},
+  {id:29,name:'Glitchwing',type:['Psychic','Flying'],file:'glitchwing.png',base:{hp:33,atk:14}},
+  {id:30,name:'Ironhide',  type:['Steel','Rock'],    file:'ironhide.png',  base:{hp:52,atk:10}},
 ];
 
 
@@ -928,7 +939,9 @@ const MOVES_BY_TYPE={
     {name:'Tail Whip', level:8, power:0, maxPP:30,effect:'lowerDef'},
     {name:'Body Blow', level:14,power:22,maxPP:15},
     {name:'Full Force',level:24,power:30,maxPP:8}
-  ]
+  ],
+  Psychic: [{name:'Confusion',level:1,power:8,maxPP:25},{name:'Mind Blast',level:6,power:14,maxPP:15},{name:'Psybeam',level:14,power:20,maxPP:10},{name:'Psycho Crush',level:24,power:28,maxPP:5}],
+  Steel:   [{name:'Metal Claw',level:1,power:9,maxPP:25},{name:'Iron Head',level:6,power:15,maxPP:15},{name:'Steel Beam',level:14,power:20,maxPP:10},{name:'Flash Cannon',level:24,power:28,maxPP:5}],
 };
 function getKnownMoves(inst){
   let pool=[];
@@ -1134,7 +1147,7 @@ function setupMovement(){
   document.addEventListener('keydown',moveHandler);
 }
 function triggerGrassEncounter(){
-  const pool=Math.random()<0.3?SPECIES.filter(s=>s.id>10):SPECIES.filter(s=>s.id<=10);
+  const pool=Math.random()<0.3?SPECIES.filter(s=>s.id>10):SPECIES.filter(s=>s.id<=10&&s.id>=1);
   startWildBattle(pool[Math.floor(Math.random()*pool.length)],false);
 }
 function clearOverworldMsg(){ const el=document.getElementById('overworld-msg'); if(el) el.innerHTML=''; }
@@ -1593,7 +1606,7 @@ function switchBattleMon(uid,bt){
   if(bt==='wild') renderWildBattleUI(); else renderBattleInterior();
 }
 </script>
-<footer style="position:fixed;right:3.2%;bottom:4.5%;z-index:2000;margin:0;padding:8px 12px;font-size:16px;font-weight:bold;color:#ffffff;background:rgba(0,0,0,0.55);border-radius:6px;pointer-events:none;">version 1.0</footer>
+<footer style="position:fixed;right:3.2%;bottom:4.5%;z-index:2000;margin:0;padding:8px 12px;font-size:16px;font-weight:bold;color:#ffffff;background:rgba(0,0,0,0.55);border-radius:6px;pointer-events:none;">version 1.5</footer>
 <script>
 // Show the browser scrollbar and allow mouse-wheel scrolling on Login, Trade Post, and Battle screens.
 (function() {
