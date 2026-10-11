@@ -26,3 +26,4 @@ Built with vanilla HTML, CSS and JavaScript.
 Inspired by the Pokémon franchise by Nintendo / Game Freak.
 ## Version 1.5
 -New romblomons
+-Added folders to make download easier
